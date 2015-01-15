@@ -42,7 +42,7 @@
       (assoc source [0 nil])))
 
 (defn cost-for-vertexes
-  "Returns a seq of [vertex cost] pairs, only vertexes from q,
+  "Returns a seq of [vertex cost] pairs, using only vertexes from q,
   (a set of vertexes)."
   [q vcp]
   {:pre [(map? vcp)]}
@@ -59,14 +59,15 @@
        first))
 
 (defn relax
-  "Relax the edge [v1 v2] and returns an updated cost and predecessor
+  "Relaxes the edge [v1 v2] and returns an updated cost and predecessor
   for each vertex; more precisely, returns a map with {vertex [cost
   predecessor]} pairs.
 
-  The process of relaxing an edge consists of testing whether we can
-  improve the current shortest path to v2 found so far by going through
-  v1, and if so, updating the cost and predecessor of v2. (See ItA, page
-  649.)
+  From ItA, page 649, 'The process of relaxing an edge consists of
+  testing whether we can improve the current shortest path to [v2] found
+  so far by going through [v1], and if so, updating the [cost] and
+  [predecessor] of [v2].' (Note: the [brackets] indicate where this
+  code's terminology is used instead of the ItA names.)
 
   Arguments:
   v1    : vertex 1
@@ -94,7 +95,8 @@
 (defn dijkstra
   "Returns a cost and predecessor for each vertex; more precisely,
   returns a map with {vertex [cost predecessor]} pairs using Dijkstra's
-  shortest path algorithm for single-sources (see ItA, page 658).
+  shortest path algorithm for single-sources (see ItA, page 658). The
+  costs (i.e. edge weights) must be non-negative.
 
   Arguments:
   vertexes : a set of vertexes (unique values, such as keywords)
