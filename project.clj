@@ -1,4 +1,4 @@
-(defproject xpe/dijkstra "0.1.0"
+(defproject xpe/dijkstra "0.1.1-SNAPSHOT"
   :description "Dijkstra's shortest-paths algorithm in Clojure."
   :url "http://github.com/bluemont/dijkstra"
   :license {:name "Eclipse Public License"
